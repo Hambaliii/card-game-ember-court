@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember Court — A Duel of Ember Spirits</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #04150c; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: sans-serif; }
+  #wrap { width: 1280px; max-width: 100vw; }
+  canvas { display: block; width: 100%; height: auto; background: #062a17; cursor: pointer; }
+  #help { color: #d8cdb4; text-align: center; padding: 10px; font-size: 15px; }
+  #help b { color: #ffd23a; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720"></canvas>
+  <div id="help"><b>EMBER COURT</b> — click a card or press 1-5 to play &nbsp;•&nbsp; SPACE end turn &nbsp;•&nbsp; R restart &nbsp;•&nbsp; M sound</div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
