@@ -61,7 +61,7 @@ export function applyShot(state, shot, seed = 1) {
     state.playerDeck = shuffled.slice(0, 14);
     state.aiDeck = shuffled.slice(0, 16);
     state.playerDiscard = shuffled.slice(14, 18);
-    state.log = ['You play Inferno (Ember) — deals 12 damage.', 'VICTORY! The Ashen Magistrate falls.'];
+    state.log = ['You play Flame Lash (Ember) — deals 5 damage.', 'You play Inferno (Ember) — deals 12 damage.', 'VICTORY! The Ashen Magistrate falls.'];
     return state;
   }
   if (shot === 'loss') {
@@ -76,7 +76,7 @@ export function applyShot(state, shot, seed = 1) {
     state.playerDeck = shuffled.slice(0, 15);
     state.aiDeck = shuffled.slice(0, 17);
     state.playerDiscard = shuffled.slice(15, 19);
-    state.log = ['Ashen Magistrate plays Tempest — deals 10 damage.', 'DEFEAT. Your embers fade.'];
+    state.log = ['Ashen Magistrate plays Tide Serpent — deals 4 damage.', 'Ashen Magistrate plays Tempest — deals 10 damage.', 'DEFEAT. Your embers fade.'];
     return state;
   }
   return state;
