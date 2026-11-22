@@ -24,7 +24,7 @@ async function main(): Promise<void> {
   if (existsSync(gameSrc)) await copyDir(gameSrc, path.join(outputDir, "game"));
   const shotsSrc = path.join(repoRoot, "screenshots");
   if (existsSync(shotsSrc)) await copyDir(shotsSrc, path.join(outputDir, "screenshots"));
-  const dossier = await buildDossier({
+  const dossier = await buildDossier(outputDir, {
     text_max_bytes: 163840,
     screenshots: { max: 4, max_bytes: 262144 },
     game_max_files: 993,
