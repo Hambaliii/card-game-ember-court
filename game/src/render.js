@@ -341,11 +341,11 @@ function drawEndScreen(ctx, state, win) {
   ctx.fillText(win ? 'The Ashen Magistrate falls. The court is yours.' : 'Your embers fade. The Magistrate endures.', W / 2, 300);
   ctx.font = 'bold 30px sans-serif';
   ctx.fillStyle = '#ffd23a';
-  ctx.fillText(`LIFE REMAINING  ${state.playerLife}`, W / 2, 365);
-  ctx.fillText(`TURNS  ${state.turnsTaken}`, W / 2, 405);
-  ctx.fillText(`DAMAGE DEALT  ${state.damageDealt}`, W / 2, 445);
+  ctx.fillText(`LIFE REMAINING  ${state.playerLife}`, W / 2, 350);
+  ctx.fillText(`TURNS  ${state.turnsTaken}`, W / 2, 390);
+  ctx.fillText(`DAMAGE DEALT  ${state.damageDealt}`, W / 2, 425);
   ctx.fillStyle = '#f3e9d2'; ctx.font = 'bold 26px sans-serif';
-  ctx.fillText('Press R or click to duel again', W / 2, 520);
+  ctx.fillText('Press R or click to duel again', W / 2, 468);
   ctx.restore();
 }
 
@@ -442,10 +442,16 @@ export function draw(ctx, state, opts = {}) {
       selected: isSelected,
       dim: state.phase === 'play' && !affordable,
     });
+    // Key hint badge — inside the card's top-right corner, clear of the
+    // table trim (the old numbers below the hand were bisected by it).
+    ctx.save();
+    ctx.beginPath(); ctx.arc(r.x + r.w - 26, r.y - lift + 26, 15, 0, Math.PI * 2);
+    ctx.fillStyle = '#d4af37'; ctx.fill();
+    ctx.lineWidth = 2; ctx.strokeStyle = '#fff'; ctx.stroke();
+    ctx.fillStyle = '#1a1208'; ctx.font = 'bold 20px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText(String(r.index + 1), r.x + r.w - 26, r.y - lift + 33);
+    ctx.restore();
   });
-  // Hand key hints.
-  ctx.fillStyle = '#d8cdb4'; ctx.font = '18px sans-serif'; ctx.textAlign = 'center';
-  rects.forEach((r, i) => ctx.fillText(String(i + 1), r.x + r.w / 2, r.y + r.h + 20));
 
   // END TURN button + combat log — hidden once the duel is decided, so
   // they never fight the end-screen text.
